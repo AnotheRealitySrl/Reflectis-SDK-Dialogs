@@ -1,6 +1,5 @@
-# SPACS-SysTemplate
+# Release notes
 
-## Realease notes:
-### v.1.0
----
+## v1.0.0
+
 - First implementation.

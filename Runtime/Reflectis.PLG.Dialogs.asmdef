@@ -1,8 +1,10 @@
 {
-    "name": "SPACS.SysTemplate",
-    "rootNamespace": "SPACS.SysTemplate",
+    "name": "Reflectis.PLG.Dialogs",
+    "rootNamespace": "Reflectis.PLG.Dialogs",
     "references": [
-        "GUID:ab59f74e483e1ee4595bfefea56493f2"
+        "I2.Loc",
+        "Reflectis.PLG.Graphs",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,3 +1,4 @@
-# SPACS-SysTemplate
+# Reflectis-Dialogs
 
-[Documentation here](Documentation~/index.md)
+- [Documentation here](Documentation~/index.md)
+- [Changelog here](CHANGELOG.md)

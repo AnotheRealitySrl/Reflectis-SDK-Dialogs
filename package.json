@@ -1,15 +1,22 @@
 {
-  "name": "com.anotherealitysrl.spacs-systemplate",
-  "displayName": "SPACS-SysTemplate",
+  "name": "com.anotherealitysrl.reflectis-plg-dialogs",
+  "displayName": "Reflectis-PLG-Dialogs",
   "version": "1.0.0",
   "unity": "2020.1",
-  "description": "SPACS SysTemplate",
+  "description": "Reflectis Dialogs module",
   "keywords": [
     "unity"
   ],
   "category": "Unity",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnotheRealitySrl/SPACS-SysTemplate"
-  }
+    "url": "https://github.com/AnotheRealitySrl/Reflectis-PLG-Dialogs"
+  },
+  "samples": [
+    {
+      "displayName": "I2 LocalizeDialog",
+      "description": "Contains the script used to be able to localize the language for the dialogs",
+      "path": "I2Dialog~"
+    }
+  ]
 }
