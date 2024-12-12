@@ -2,7 +2,8 @@
     "name": "Reflectis.PLG.Dialogs.Editor",
     "rootNamespace": "Reflectis.PLG.DialogsEditor",
     "references": [
-        "Reflectis.PLG.Dialogs"
+        "Reflectis.PLG.Dialogs",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [
         "Editor"

@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 3629072094427391591}
   - component: {fileID: 4356865591487282181}
   m_Layer: 0
-  m_Name: TitleBg
+  m_Name: NicknameBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2642,7 +2642,7 @@ GameObject:
   - component: {fileID: 1882593057551132074}
   - component: {fileID: 7826686424840547631}
   m_Layer: 0
-  m_Name: TitleBg
+  m_Name: NicknameBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 7555057557358662354}
   - component: {fileID: 7724088478457259398}
   m_Layer: 0
-  m_Name: TitleText
+  m_Name: NicknameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6636,7 +6636,7 @@ GameObject:
   - component: {fileID: 8051229763551453749}
   - component: {fileID: 8051229763551453748}
   m_Layer: 0
-  m_Name: TitleText
+  m_Name: NicknameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8895,8 +8895,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPanel:
     panelObject: {fileID: 8051229763351005914}
-    titleText: {fileID: 8051229763551453748}
+    showNickname: 1
+    nicknameBg: {fileID: 1138959712967444117}
+    nicknameText: {fileID: 8051229763551453748}
     dialogText: {fileID: 8051229765276248915}
+    showAvatarContainer: 1
     avatarContainer: {fileID: 8051229765117738248}
     choiceButtonGroups:
     - {fileID: 8051229764128825500}
@@ -8906,8 +8909,11 @@ MonoBehaviour:
     - {fileID: 8051229763717592547}
   npcPanel:
     panelObject: {fileID: 1806892842338157545}
-    titleText: {fileID: 7724088478457259398}
+    showNickname: 1
+    nicknameBg: {fileID: 3986303821784364267}
+    nicknameText: {fileID: 7724088478457259398}
     dialogText: {fileID: 46077842672195898}
+    showAvatarContainer: 1
     avatarContainer: {fileID: 4138225314468258261}
     choiceButtonGroups:
     - {fileID: 8416242049248410514}

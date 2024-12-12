@@ -27,10 +27,16 @@ namespace Reflectis.PLG.Dialogs
         {
             [Tooltip("Gameobject containing the whole dialog panel")]
             public GameObject panelObject = default;
+            [Tooltip("Option to show nickname text")]
+            public bool showNickname = false;
+            [Tooltip("Nickname bg object")]
+            public GameObject nicknameBg = default;
             [Tooltip("Text component that will display the character name")]
-            public TextMeshProUGUI titleText = default;
+            public TextMeshProUGUI nicknameText = default;
             [Tooltip("Text component that will display the dialog text")]
             public TextMeshProUGUI dialogText = default;
+            [Tooltip("Option to show avatar image")]
+            public bool showAvatarContainer = false;
             [Tooltip("Container that will display the character icon/avatar")]
             public Image avatarContainer = default;
             [Tooltip("List of Gameobjects containing the buttons needed for dialog choices")]
@@ -40,6 +46,9 @@ namespace Reflectis.PLG.Dialogs
             // the button labels can be customized for each dialog.
             public List<List<TextMeshProUGUI>> choiceButtonLabels = default;
         }
+
+        public DialogPanel PlayerPanel { get => playerPanel; }
+        public DialogPanel NpcPanel { get => npcPanel; }
 
         /// <summary>
         /// Makes the dialog system in use step on to the next dialog along the dialogue path.
@@ -79,7 +88,7 @@ namespace Reflectis.PLG.Dialogs
                 dialogSystemInUse = dialogSystem;
                 currentDialogPanel.panelObject.SetActive(true);
                 SetChoiceButtons(currentDialog, currentDialogPanel);
-                SetTitleText(currentDialog.Character, currentDialogPanel);
+                SetNicknameText(currentDialog.Character, currentDialogPanel);
                 SetAvatar(currentDialog.Avatar, currentDialogPanel);
                 SetDialogText(currentDialog.Dialog, currentDialogPanel);
             }
@@ -166,9 +175,14 @@ namespace Reflectis.PLG.Dialogs
             }
         }
 
-        private void SetTitleText(string titleId, DialogPanel currentPanel)
+        private void SetNicknameText(string titleId, DialogPanel currentPanel)
         {
-            currentPanel.titleText.text = titleId;
+            if (!currentPanel.showNickname || string.IsNullOrEmpty(titleId))
+                currentPanel.nicknameText.gameObject.SetActive(false); //VA SPENTO PADRE!!!
+            {
+                currentPanel.nicknameText.gameObject.SetActive(true);
+                currentPanel.nicknameText.text = titleId;
+            }
         }
 
         private void SetDialogText(string dialogId, DialogPanel currentPanel)
@@ -178,8 +192,13 @@ namespace Reflectis.PLG.Dialogs
 
         private void SetAvatar(Sprite texture, DialogPanel currentPanel)
         {
-            currentPanel.avatarContainer.enabled = texture == null ? false : true;
-            currentPanel.avatarContainer.sprite = texture;
+            if (!currentPanel.showAvatarContainer || texture == null)
+                currentPanel.avatarContainer.gameObject.SetActive(false);
+            else
+            {
+                currentPanel.avatarContainer.gameObject.SetActive(true);
+                currentPanel.avatarContainer.sprite = texture;
+            }
         }
     }
 }
