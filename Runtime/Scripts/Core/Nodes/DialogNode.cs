@@ -45,7 +45,7 @@ namespace Reflectis.PLG.Dialogs
 
 
         [Header("Data")]
-        [SerializeField, NodeData, Tooltip("Dialog text (or reference for the database)")]
+        [SerializeField, TextArea, NodeData, Tooltip("Dialog text (or reference for the database)")]
         protected string dialog;
 
         [SerializeField, NodeData, Tooltip("Character name (or reference for the database)")]
