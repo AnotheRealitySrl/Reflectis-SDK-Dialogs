@@ -78,7 +78,7 @@ namespace Reflectis.PLG.Dialogs
                     return;
 
                 if (!typewriterEffect.ReadyForNewText)
-                    Skip();
+                    typewriterEffect.Skip(currentDialogPanel.dialogText);
                 else
                     dialogSystemInUse.ContinueDialog(choice);
             }
@@ -257,14 +257,6 @@ namespace Reflectis.PLG.Dialogs
                 currentPanel.avatarContainer.gameObject.SetActive(true);
                 currentPanel.avatarContainer.sprite = texture;
             }
-        }
-
-        private void Skip()
-        {
-            //Check se bool è attivo
-            //Collegarlo all'evento del bottone dello start
-            //Fare lo skip
-            typewriterEffect.Skip(currentDialogPanel.dialogText);
         }
     }
 }
