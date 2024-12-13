@@ -8853,6 +8853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8051229764632951373}
   - component: {fileID: 8051229764632951374}
+  - component: {fileID: 6944144496426556438}
   m_Layer: 0
   m_Name: DialogPanel
   m_TagString: Untagged
@@ -8921,6 +8922,24 @@ MonoBehaviour:
     - {fileID: 3421646212877705403}
     - {fileID: 3287749230404693846}
     - {fileID: 3106632161633379915}
+  charactersPerSecond: 20
+  interpunctuationDelay: 0.5
+  typewriterEffect: {fileID: 6944144496426556438}
+  enableSkip: 1
+  quickSkip: 1
+  skipSpeedup: 5
+--- !u!114 &6944144496426556438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8051229764632951372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb59082eca81384d867907c917fa0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8051229764639278824
 GameObject:
   m_ObjectHideFlags: 0

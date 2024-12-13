@@ -14,10 +14,28 @@ namespace Reflectis.PLG.Dialogs
     /// </summary>
     public class DialogPanelController : MonoBehaviour
     {
+        [Header("References")]
         [SerializeField]
         private DialogPanel playerPanel;
         [SerializeField]
         private DialogPanel npcPanel;
+
+        [Space]
+        [Header("Typewrite Settings")]
+        [SerializeField]
+        private float charactersPerSecond = 20f;
+        [SerializeField]
+        private float interpunctuationDelay = 0.5f;
+        [SerializeField] //Todo fare una getcomponent?
+        private TypewriterEffect typewriterEffect;
+        private bool typeWriteActive;
+        [Header("Skip options")]
+        [SerializeField]
+        private bool enableSkip;
+        [SerializeField]
+        private bool quickSkip;
+        [SerializeField][Min(1)]
+        private int skipSpeedup = 5;
 
         private DialogSystem dialogSystemInUse = default;
         private DialogPanel currentDialogPanel;
@@ -57,7 +75,29 @@ namespace Reflectis.PLG.Dialogs
         /// <param name="choice">The dialog option to follow in the path.</param>
         public void ContinueDialog(int choice)
         {
-            dialogSystemInUse.ContinueDialog(choice);
+            //Manage skip and all possible cases with next dialog and typewrite effect
+            if (enableSkip)
+            {
+                if (typewriterEffect.CurrentlySkipping)
+                    return;
+
+                if (!typewriterEffect.ReadyForNewText)
+                    Skip();
+                else
+                    dialogSystemInUse.ContinueDialog(choice);
+            }
+            else
+            {
+                if (typeWriteActive)
+                {
+                    if (!typewriterEffect.ReadyForNewText)
+                        return;
+                    else 
+                        dialogSystemInUse.ContinueDialog(choice);
+                }
+                else
+                    dialogSystemInUse.ContinueDialog(choice);
+            }
         }
 
         /// <summary>
@@ -105,6 +145,15 @@ namespace Reflectis.PLG.Dialogs
         {
             SetUpPanels(playerPanel);
             SetUpPanels(npcPanel);
+
+            typeWriteActive = charactersPerSecond > 0;
+            if (typeWriteActive)
+            {
+                typewriterEffect.Setup(charactersPerSecond, interpunctuationDelay, quickSkip, skipSpeedup);
+                playerPanel.dialogText.maxVisibleCharacters = 0;
+                npcPanel.dialogText.maxVisibleCharacters = 0;
+            }
+
         }
 
         private void SetUpPanels(DialogPanel panel)
@@ -187,7 +236,17 @@ namespace Reflectis.PLG.Dialogs
 
         private void SetDialogText(string dialogId, DialogPanel currentPanel)
         {
+            //if (currentPanel.dialogText.text == dialogId)
+            //{
+            //    currentPanel.dialogText.text = "";
+            //    currentPanel.dialogText.ForceMeshUpdate();
+            //}
             currentPanel.dialogText.text = dialogId;
+            currentPanel.dialogText.ForceMeshUpdate();
+
+            //Qui va aggiunta logica per come scrivere il testo.
+            if (typeWriteActive)
+                typewriterEffect.PrepareForNewText(currentPanel.dialogText);
         }
 
         private void SetAvatar(Sprite texture, DialogPanel currentPanel)
@@ -199,6 +258,14 @@ namespace Reflectis.PLG.Dialogs
                 currentPanel.avatarContainer.gameObject.SetActive(true);
                 currentPanel.avatarContainer.sprite = texture;
             }
+        }
+
+        private void Skip()
+        {
+            //Check se bool è attivo
+            //Collegarlo all'evento del bottone dello start
+            //Fare lo skip
+            typewriterEffect.Skip(currentDialogPanel.dialogText);
         }
     }
 }

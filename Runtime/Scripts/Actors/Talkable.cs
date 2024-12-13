@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Reflectis.PLG.Graphs;
+using static UnityEngine.GraphicsBuffer;
+using UnityEditor;
 
 namespace Reflectis.PLG.Dialogs
 {
@@ -64,4 +66,20 @@ namespace Reflectis.PLG.Dialogs
             }
         }
     }
+
+
+#if UNITY_EDITOR
+    [CustomEditor(typeof(Talkable))]
+    public class SaveDTOEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            Talkable saveDto = (Talkable)target;
+
+            if (GUILayout.Button("Activate Dialog"))
+                saveDto.ActivateDialog();
+        }
+    }
+#endif
 }
