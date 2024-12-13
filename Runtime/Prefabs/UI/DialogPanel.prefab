@@ -8924,7 +8924,6 @@ MonoBehaviour:
     - {fileID: 3106632161633379915}
   charactersPerSecond: 20
   interpunctuationDelay: 0.5
-  typewriterEffect: {fileID: 6944144496426556438}
   enableSkip: 1
   quickSkip: 1
   skipSpeedup: 5

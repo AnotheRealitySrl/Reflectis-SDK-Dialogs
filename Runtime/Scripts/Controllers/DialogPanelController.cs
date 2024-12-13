@@ -20,16 +20,12 @@ namespace Reflectis.PLG.Dialogs
         [SerializeField]
         private DialogPanel npcPanel;
 
-        [Space]
-        [Header("Typewrite Settings")]
         [SerializeField]
         private float charactersPerSecond = 20f;
         [SerializeField]
         private float interpunctuationDelay = 0.5f;
-        [SerializeField] //Todo fare una getcomponent?
         private TypewriterEffect typewriterEffect;
         private bool typeWriteActive;
-        [Header("Skip options")]
         [SerializeField]
         private bool enableSkip;
         [SerializeField]
@@ -146,6 +142,13 @@ namespace Reflectis.PLG.Dialogs
             SetUpPanels(playerPanel);
             SetUpPanels(npcPanel);
 
+            typewriterEffect = GetComponent<TypewriterEffect>();
+            if (typewriterEffect == null)
+            {
+                Debug.LogError("TypeWriteEffect component is missing!");
+                return;
+            }
+
             typeWriteActive = charactersPerSecond > 0;
             if (typeWriteActive)
             {
@@ -227,24 +230,20 @@ namespace Reflectis.PLG.Dialogs
         private void SetNicknameText(string titleId, DialogPanel currentPanel)
         {
             if (!currentPanel.showNickname || string.IsNullOrEmpty(titleId))
-                currentPanel.nicknameText.gameObject.SetActive(false); //VA SPENTO PADRE!!!
+                currentPanel.nicknameBg.SetActive(false);
+            else
             {
-                currentPanel.nicknameText.gameObject.SetActive(true);
+                currentPanel.nicknameBg.SetActive(true);
                 currentPanel.nicknameText.text = titleId;
             }
         }
 
         private void SetDialogText(string dialogId, DialogPanel currentPanel)
         {
-            //if (currentPanel.dialogText.text == dialogId)
-            //{
-            //    currentPanel.dialogText.text = "";
-            //    currentPanel.dialogText.ForceMeshUpdate();
-            //}
             currentPanel.dialogText.text = dialogId;
             currentPanel.dialogText.ForceMeshUpdate();
 
-            //Qui va aggiunta logica per come scrivere il testo.
+            //Typewirte Effect logic
             if (typeWriteActive)
                 typewriterEffect.PrepareForNewText(currentPanel.dialogText);
         }
