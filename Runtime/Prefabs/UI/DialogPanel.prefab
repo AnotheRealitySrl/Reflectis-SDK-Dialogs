@@ -8901,7 +8901,6 @@ MonoBehaviour:
     nicknameText: {fileID: 8051229763551453748}
     dialogText: {fileID: 8051229765276248915}
     showAvatarContainer: 1
-    avatarContainer: {fileID: 8051229765117738248}
     choiceButtonGroups:
     - {fileID: 8051229764128825500}
     - {fileID: 8051229765098593605}
@@ -8915,7 +8914,6 @@ MonoBehaviour:
     nicknameText: {fileID: 7724088478457259398}
     dialogText: {fileID: 46077842672195898}
     showAvatarContainer: 1
-    avatarContainer: {fileID: 4138225314468258261}
     choiceButtonGroups:
     - {fileID: 8416242049248410514}
     - {fileID: 5149065380950663360}
@@ -8927,6 +8925,8 @@ MonoBehaviour:
   enableSkip: 1
   quickSkip: 1
   skipSpeedup: 5
+  avatarContainerPlayer: {fileID: 8051229765117738248}
+  avatarContainerNpc: {fileID: 4138225314468258261}
 --- !u!114 &6944144496426556438
 MonoBehaviour:
   m_ObjectHideFlags: 0

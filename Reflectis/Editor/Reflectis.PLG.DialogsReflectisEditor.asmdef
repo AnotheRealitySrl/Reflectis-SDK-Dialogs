@@ -1,0 +1,16 @@
+{
+    "name": "Reflectis.PLG.DialogsReflectisEditor",
+    "rootNamespace": "Reflectis.PLG.DialogsReflectisEditor",
+    "references": [
+        "GUID:cb5939e12ccdf1f4889358b6a8aed9da"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -10,11 +10,12 @@ namespace Reflectis.PLG.DialogsEditor
     [CustomEditor(typeof(DialogPanelController))]
     public class DialogPanelControllerEditor : Editor
     {
+        DialogPanelController controller;
         public override void OnInspectorGUI()
         {
             EditorGUI.BeginChangeCheck();
 
-            DialogPanelController controller = (DialogPanelController)target;
+            controller = (DialogPanelController)target;
 
             //PlayerPanel
             EditorGUILayout.LabelField("Player Panel", EditorStyles.boldLabel);
@@ -72,8 +73,10 @@ namespace Reflectis.PLG.DialogsEditor
 
             SerializedProperty showAvatarContainer = serializedObject.FindProperty($"{variableName}.showAvatarContainer");
             EditorGUILayout.PropertyField(showAvatarContainer);
-            if (showAvatarContainer.boolValue)
-                dialogPanel.avatarContainer = (Image)EditorGUILayout.ObjectField("Avatar Container", dialogPanel.avatarContainer, typeof(Image), true);
+            if (showAvatarContainer.boolValue && variableName == "playerPanel")
+                controller.AvatarContainerPlayer = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerPlayer, typeof(Image), true);
+            else
+                controller.AvatarContainerNpc = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerNpc, typeof(Image), true);
 
             SerializedProperty choiceButtonGroups = serializedObject.FindProperty($"{variableName}.choiceButtonGroups");
             EditorGUILayout.PropertyField(choiceButtonGroups, true);
