@@ -22,35 +22,16 @@ namespace Reflectis.PLG.Dialogs
         public Image AvatarContainerPlayer { get => avatarContainerPlayer; set => avatarContainerPlayer = value; }
         public Image AvatarContainerNpc { get => avatarContainerNpc; set => avatarContainerNpc = value; }
 
-        protected override void SetNicknameText(string titleId, DialogPanel currentPanel)
-        {
-            if (!currentPanel.showNickname || string.IsNullOrEmpty(titleId))
-                currentPanel.nicknameBg.SetActive(false);
-            else
-            {
-                currentPanel.nicknameBg.SetActive(true);
-                currentPanel.nicknameText.text = titleId;
-            }
-        }
-
-        protected override void SetDialogText(string dialogId, DialogPanel currentPanel)
-        {
-            currentPanel.dialogText.text = dialogId;
-            currentPanel.dialogText.ForceMeshUpdate();
-
-            //Typewirte Effect logic
-            if (typeWriteActive)
-                typewriterEffect.PrepareForNewText(currentPanel.dialogText);
-        }
 
         protected override void SetAvatar(Sprite texture, DialogPanel currentPanel)
         {
+            var avatarContainer = currentPanel.isPlayer ? avatarContainerPlayer : avatarContainerNpc;
             if (!currentPanel.showAvatarContainer || texture == null)
-                avatarContainerPlayer.gameObject.SetActive(false);
+                avatarContainer.gameObject.SetActive(false);
             else
             {
-                avatarContainerPlayer.gameObject.SetActive(true);
-                avatarContainerPlayer.sprite = texture;
+                avatarContainer.gameObject.SetActive(true);
+                avatarContainer.sprite = texture;
             }
         }
     }

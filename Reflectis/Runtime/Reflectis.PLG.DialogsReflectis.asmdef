@@ -2,7 +2,9 @@
     "name": "Reflectis.PLG.DialogsReflectis",
     "rootNamespace": "Reflectis.PLG.DialogsDialogsReflectis",
     "references": [
-        "Reflectis.PLG.Dialogs"
+        "Reflectis.PLG.Dialogs",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

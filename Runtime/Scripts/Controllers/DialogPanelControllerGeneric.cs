@@ -52,6 +52,8 @@ namespace Reflectis.PLG.Dialogs
             // This will store a reference to the text component of each choice button, so that 
             // the button labels can be customized for each dialog.
             public List<List<TextMeshProUGUI>> choiceButtonLabels = default;
+            [HideInInspector]
+            public bool isPlayer;
         }
 
         public DialogPanel PlayerPanel { get => playerPanel; }
@@ -133,6 +135,8 @@ namespace Reflectis.PLG.Dialogs
         {
             SetUpPanels(playerPanel);
             SetUpPanels(npcPanel);
+            playerPanel.isPlayer = true;
+            npcPanel.isPlayer = false;
 
             typewriterEffect = GetComponent<TypewriterEffect>();
             if (typewriterEffect == null)
@@ -148,7 +152,6 @@ namespace Reflectis.PLG.Dialogs
                 playerPanel.dialogText.maxVisibleCharacters = 0;
                 npcPanel.dialogText.maxVisibleCharacters = 0;
             }
-
         }
 
         private void SetUpPanels(DialogPanel panel)
@@ -178,6 +181,9 @@ namespace Reflectis.PLG.Dialogs
                 }
             }
         }
+
+        public virtual void SetSettings(float _charactersPerSecond, float _interpunctuationDelay, bool _enableSkip, bool _quickSkip, int _skipSpeedup,
+            bool _showPlayerNickname, bool _showNpcNickname, bool _showPlayerAvatarContainer, bool _showNpcAvatarContainer, bool useOtherNickname = false, bool useOtherAvatar = false) { }
 
         /// <summary>
         /// Enables the button group needed by the dialog element, and sets all button labels.
@@ -218,9 +224,26 @@ namespace Reflectis.PLG.Dialogs
             }
         }
 
-        protected virtual void SetNicknameText(string titleId, DialogPanel currentPanel) { }
+        protected virtual void SetNicknameText(string titleId, DialogPanel currentPanel)
+        {
+            if (!currentPanel.showNickname || string.IsNullOrEmpty(titleId))
+                currentPanel.nicknameBg.SetActive(false);
+            else
+            {
+                currentPanel.nicknameBg.SetActive(true);
+                currentPanel.nicknameText.text = titleId;
+            }
+        }
 
-        protected virtual void SetDialogText(string dialogId, DialogPanel currentPanel) { }
+        protected void SetDialogText(string dialogId, DialogPanel currentPanel)
+        {
+            currentPanel.dialogText.text = dialogId;
+            currentPanel.dialogText.ForceMeshUpdate();
+
+            //Typewirte Effect logic
+            if (typeWriteActive)
+                typewriterEffect.PrepareForNewText(currentPanel.dialogText);
+        }
 
         protected virtual void SetAvatar(Sprite texture, DialogPanel currentPanel) { }
     }
