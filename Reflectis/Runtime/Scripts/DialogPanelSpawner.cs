@@ -39,7 +39,7 @@ namespace Reflectis.PLG.DialogsDialogsReflectis
         {
             if (obj.Status == AsyncOperationStatus.Succeeded)
             {
-                Instantiate(obj.Result).GetComponent<DialogPanelController>().SetSettings(charactersPerSecond, interpunctuationDelay, enableSkip, quickSkip, skipSpeedup,
+                Instantiate(obj.Result).GetComponent<DialogPanelControllerGeneric>().SetSettings(charactersPerSecond, interpunctuationDelay, enableSkip, quickSkip, skipSpeedup,
             showPlayerNickname, showNpcNickname, showPlayerAvatarContainer, showNpcAvatarContainer, useReflectisNickname, useReflectisAvatar);
             }
             else
