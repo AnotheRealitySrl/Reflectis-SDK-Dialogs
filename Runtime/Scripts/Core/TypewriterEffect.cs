@@ -43,7 +43,7 @@ namespace Reflectis.PLG.Dialogs
             textboxFullEventDelay = new WaitForSeconds(sendDoneDelay);
         }
 
-        public void PrepareForNewText(TextMeshProUGUI textBox) //Se lo chiamo da altro script, non serve il primo check! 
+        public void PrepareForNewText(TMP_Text textBox) //Se lo chiamo da altro script, non serve il primo check! 
         {
             if (!readyForNewText)
                 return;
@@ -60,7 +60,7 @@ namespace Reflectis.PLG.Dialogs
             typewriterCoroutine = StartCoroutine(Typewriter(textBox));
         }
 
-        private IEnumerator Typewriter(TextMeshProUGUI textBox)
+        private IEnumerator Typewriter(TMP_Text textBox)
         {
             TMP_TextInfo textInfo = textBox.textInfo;
 
@@ -98,7 +98,7 @@ namespace Reflectis.PLG.Dialogs
             }
         }
 
-        public void Skip(TextMeshProUGUI textBox)
+        public void Skip(TMP_Text textBox)
         {
             if (CurrentlySkipping)
                 return;

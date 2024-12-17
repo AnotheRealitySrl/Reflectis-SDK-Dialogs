@@ -41,9 +41,9 @@ namespace Reflectis.PLG.Dialogs
             [Tooltip("Nickname bg object")]
             public GameObject nicknameBg = default;
             [Tooltip("Text component that will display the character name")]
-            public TextMeshProUGUI nicknameText = default;
+            public TMP_Text nicknameText = default;
             [Tooltip("Text component that will display the dialog text")]
-            public TextMeshProUGUI dialogText = default;
+            public TMP_Text dialogText = default;
             [Tooltip("Option to show avatar image")]
             public bool showAvatarContainer = false;
             [Tooltip("List of Gameobjects containing the buttons needed for dialog choices")]
@@ -51,7 +51,7 @@ namespace Reflectis.PLG.Dialogs
 
             // This will store a reference to the text component of each choice button, so that 
             // the button labels can be customized for each dialog.
-            public List<List<TextMeshProUGUI>> choiceButtonLabels = default;
+            public List<List<TMP_Text>> choiceButtonLabels = default;
             [HideInInspector]
             public bool isPlayer;
         }
@@ -126,7 +126,8 @@ namespace Reflectis.PLG.Dialogs
             // if the there is no dialog in progress, disables the dialog panel.
             else
             {
-                currentDialogPanel.panelObject.SetActive(false);
+                if (currentDialogPanel != null)
+                    currentDialogPanel.panelObject.SetActive(false);
                 dialogSystemInUse = null;
             }
         }
@@ -161,13 +162,13 @@ namespace Reflectis.PLG.Dialogs
 
             panel.panelObject.SetActive(false);
 
-            panel.choiceButtonLabels = new List<List<TextMeshProUGUI>>();
+            panel.choiceButtonLabels = new List<List<TMP_Text>>();
             // Fetches a reference to the TextMeshPro Text component of every choice button 
             // label and stores it in choiceButtonLabels. 
             for (int i = 0; i < panel.choiceButtonGroups.Length; i++)
             {
-                List<TextMeshProUGUI> componentList =
-                    panel.choiceButtonGroups[i].GetComponentsInChildren<TextMeshProUGUI>(true).ToList();
+                List<TMP_Text> componentList =
+                    panel.choiceButtonGroups[i].GetComponentsInChildren<TMP_Text>(true).ToList();
 
                 // Sends a warning if not enough buttons are found as children of each button group.
                 if ((i == 0 && componentList.Count < 1) || (i > 0 && componentList.Count < i))

@@ -67,9 +67,9 @@ namespace Reflectis.PLG.DialogsEditor
             SerializedProperty showNicknameText = serializedObject.FindProperty($"{variableName}.showNickname");
             EditorGUILayout.PropertyField(showNicknameText);
             if (showNicknameText.boolValue)
-                dialogPanel.nicknameText = (TextMeshProUGUI)EditorGUILayout.ObjectField("Nickname Text", dialogPanel.nicknameText, typeof(TextMeshProUGUI), true);
+                dialogPanel.nicknameText = (TMP_Text)EditorGUILayout.ObjectField("Nickname Text", dialogPanel.nicknameText, typeof(TMP_Text), true);
 
-            dialogPanel.dialogText = (TextMeshProUGUI)EditorGUILayout.ObjectField("Dialog Text", dialogPanel.dialogText, typeof(TextMeshProUGUI), true);
+            dialogPanel.dialogText = (TMP_Text)EditorGUILayout.ObjectField("Dialog Text", dialogPanel.dialogText, typeof(TMP_Text), true);
 
             SerializedProperty showAvatarContainer = serializedObject.FindProperty($"{variableName}.showAvatarContainer");
             EditorGUILayout.PropertyField(showAvatarContainer);
