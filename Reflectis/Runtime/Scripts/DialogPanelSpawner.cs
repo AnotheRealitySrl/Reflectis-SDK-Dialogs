@@ -7,28 +7,17 @@ namespace Reflectis.PLG.DialogsDialogsReflectis
 {
     public class DialogPanelSpawner : MonoBehaviour
     {
-        [SerializeField]
-        private float charactersPerSecond;
-        [SerializeField]
-        private float interpunctuationDelay;
-        [SerializeField]
-        private bool enableSkip;
-        [SerializeField]
-        private bool quickSkip;
-        [SerializeField]
-        private int skipSpeedup;
-        [SerializeField]
-        private bool showPlayerNickname;
-        [SerializeField]
-        private bool useReflectisNickname;
-        [SerializeField]
-        private bool showNpcNickname;
-        [SerializeField]
-        private bool useReflectisAvatar;
-        [SerializeField]
-        private bool showPlayerAvatarContainer;
-        [SerializeField]
-        private bool showNpcAvatarContainer;
+        public float charactersPerSecond;
+        public float interpunctuationDelay;
+        public bool enableSkip;
+        public bool quickSkip;
+        public int skipSpeedup;
+        public bool showPlayerNickname;
+        public bool useReflectisNickname;
+        public bool showNpcNickname;
+        public bool useReflectisAvatar;
+        public bool showPlayerAvatarContainer;
+        public bool showNpcAvatarContainer;
 
         private void Start()
         {
