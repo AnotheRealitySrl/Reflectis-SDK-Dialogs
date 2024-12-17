@@ -4,7 +4,9 @@
     "references": [
         "I2.Loc",
         "Reflectis.PLG.Graphs",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

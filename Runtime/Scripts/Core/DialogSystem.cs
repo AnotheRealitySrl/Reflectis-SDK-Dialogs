@@ -19,13 +19,6 @@ namespace Reflectis.PLG.Dialogs
     {
         #region Inspector Info
 
-        // If this is set to true, the content of dialog, character and option fields 
-        // (in dialog nodes) will be used as id value to get the actual text from 
-        // I2's database.
-        [SerializeField, Tooltip("Uses the content of fields in dialog nodes as id values " +
-            "to fetch data from I2 Localization database")]
-        private bool useI2Localization = true;
-
         [Header("References")]
         [SerializeField, Tooltip("The scene component or project asset that contains a valid graph")]
         protected Object graphContainer = default;
@@ -234,9 +227,6 @@ namespace Reflectis.PLG.Dialogs
             {
                 // Sets all root dialogs status to ToDo
                 node.Status = DialogStatus.Todo;
-
-                // Sets the I2 option on each node (will be needed for dialog node properties).
-                node.useI2Localization = useI2Localization;
             }
 
             //Skip one frame to adjust execution order in build

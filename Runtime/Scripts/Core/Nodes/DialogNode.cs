@@ -87,11 +87,6 @@ namespace Reflectis.PLG.Dialogs
         [SerializeField, Tooltip("Invoked when the player chooses the fourth dialog option.")]
         public UnityEvent onOption4 = default;
 
-        // If this is set to true, the content of dialog, character and option fields 
-        // will be used as id value to get the actual text from I2's database.
-        [HideInInspector]
-        public bool useI2Localization = false;
-
         ///////////////////////////////////////////////////////////////////////////
         /// <summary></summary>The collection of dialogs that precede or depends on
         /// this dialog</summary>
@@ -158,16 +153,9 @@ namespace Reflectis.PLG.Dialogs
         /// <summary>Returns the dialog text. If the system is using I2 localization, 
         /// it uses the dialog value as id to get the actual dialog text from I2's 
         /// database.</summary>
-        public string Dialog
+        public virtual string Dialog
         {
-            get
-            { 
-                if (useI2Localization)
-                {
-                    return I2.Loc.LocalizationManager.GetTranslation(dialog);
-                }
-                else return dialog;
-            }
+            get => dialog;
             set => dialog = value;
         }
 
@@ -175,16 +163,9 @@ namespace Reflectis.PLG.Dialogs
         /// <summary>Returns the character name. If the system is using I2 localization, 
         /// it uses the dialog value as id to get the actual character name from I2's 
         /// database.</summary>
-        public string Character
+        public virtual string Character
         {
-            get
-            {
-                if (useI2Localization)
-                {
-                    return I2.Loc.LocalizationManager.GetTranslation(character);
-                }
-                else return character;
-            }
+            get => character;
             set => character = value;
         }
 
@@ -198,61 +179,33 @@ namespace Reflectis.PLG.Dialogs
 
         ///////////////////////////////////////////////////////////////////////////
         /// <summary>Returns the text label for the first option button.</summary>
-        public string Option1Label
+        public virtual string Option1Label
         {
-            get
-            {
-                if (useI2Localization)
-                {
-                    return I2.Loc.LocalizationManager.GetTranslation(option1Label);
-                }
-                else return option1Label;
-            }
+            get => option1Label;
             set => option1Label = value;
         }
 
         ///////////////////////////////////////////////////////////////////////////
         /// <summary>Returns the text label for the second option button.</summary>
-        public string Option2Label
+        public virtual string Option2Label
         {
-            get
-            {
-                if (useI2Localization)
-                {
-                    return I2.Loc.LocalizationManager.GetTranslation(option2Label);
-                }
-                else return option2Label;
-            }
+            get => option2Label;
             set => option2Label = value;
         }
 
         ///////////////////////////////////////////////////////////////////////////
         /// <summary>Returns the text label for the third option button.</summary>
-        public string Option3Label
+        public virtual string Option3Label
         {
-            get
-            {
-                if (useI2Localization)
-                {
-                    return I2.Loc.LocalizationManager.GetTranslation(option3Label);
-                }
-                else return option3Label;
-            }
+            get => option3Label;
             set => option3Label = value;
         }
 
         ///////////////////////////////////////////////////////////////////////////
         /// <summary>Returns the text label for the fourth option button.</summary>
-        public string Option4Label
+        public virtual string Option4Label
         {
-            get
-            {
-                if (useI2Localization)
-                {
-                    return I2.Loc.LocalizationManager.GetTranslation(option4Label);
-                }
-                else return option4Label;
-            }
+            get => option4Label;
             set => option4Label = value;
         }
 
