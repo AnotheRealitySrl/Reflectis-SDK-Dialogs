@@ -134,10 +134,10 @@ namespace Reflectis.PLG.Dialogs
 
         private void Start()
         {
-            SetUpPanels(playerPanel);
-            SetUpPanels(npcPanel);
             playerPanel.isPlayer = true;
             npcPanel.isPlayer = false;
+            SetUpPanels(playerPanel);
+            SetUpPanels(npcPanel);
 
             typewriterEffect = GetComponent<TypewriterEffect>();
             if (typewriterEffect == null)
@@ -155,7 +155,7 @@ namespace Reflectis.PLG.Dialogs
             }
         }
 
-        private void SetUpPanels(DialogPanel panel)
+        protected virtual void SetUpPanels(DialogPanel panel)
         {
             if (!panel.panelObject)
                 return;
@@ -190,7 +190,7 @@ namespace Reflectis.PLG.Dialogs
         /// Enables the button group needed by the dialog element, and sets all button labels.
         /// </summary>
         /// <param name="dialog"></param>
-        private void SetChoiceButtons(DialogNode dialog, DialogPanel currentPanel)
+        protected virtual void SetChoiceButtons(DialogNode dialog, DialogPanel currentPanel)
         {
             foreach (GameObject buttonGroup in currentPanel.choiceButtonGroups)
             {
@@ -236,7 +236,7 @@ namespace Reflectis.PLG.Dialogs
             }
         }
 
-        protected void SetDialogText(string dialogId, DialogPanel currentPanel)
+        protected virtual void SetDialogText(string dialogId, DialogPanel currentPanel)
         {
             currentPanel.dialogText.text = dialogId;
             currentPanel.dialogText.ForceMeshUpdate();
