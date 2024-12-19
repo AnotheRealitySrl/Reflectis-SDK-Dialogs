@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Reflectis.PLG.Dialogs
 {
@@ -31,6 +32,8 @@ namespace Reflectis.PLG.Dialogs
         protected DialogSystem dialogSystemInUse = default;
         protected DialogPanel currentDialogPanel;
 
+        private bool dialogStarted = false;
+
         [System.Serializable]
         public class DialogPanel
         {
@@ -58,6 +61,8 @@ namespace Reflectis.PLG.Dialogs
 
         public DialogPanel PlayerPanel { get => playerPanel; }
         public DialogPanel NpcPanel { get => npcPanel; }
+
+        public UnityEvent OnNewDialogStart;
 
         /// <summary>
         /// Makes the dialog system in use step on to the next dialog along the dialogue path.
@@ -112,9 +117,13 @@ namespace Reflectis.PLG.Dialogs
                 if (currentDialogPanel != null)
                     currentDialogPanel.panelObject.SetActive(false);
 
-                currentDialogPanel = playerPanel;
-                if (currentDialog.npcDialogPanel)
-                    currentDialogPanel = npcPanel;
+                if (!dialogStarted)
+                {
+                    dialogStarted = true;
+                    OnNewDialogStart?.Invoke();
+                }
+
+                currentDialogPanel = currentDialog.npcDialogPanel ? npcPanel : playerPanel;
 
                 dialogSystemInUse = dialogSystem;
                 currentDialogPanel.panelObject.SetActive(true);
@@ -129,6 +138,7 @@ namespace Reflectis.PLG.Dialogs
                 if (currentDialogPanel != null)
                     currentDialogPanel.panelObject.SetActive(false);
                 dialogSystemInUse = null;
+                dialogStarted = false;
             }
         }
 
@@ -184,7 +194,8 @@ namespace Reflectis.PLG.Dialogs
         }
 
         public virtual void SetSettings(float _charactersPerSecond, float _interpunctuationDelay, bool _enableSkip, bool _quickSkip, int _skipSpeedup,
-            bool _showPlayerNickname, bool _showNpcNickname, bool _showPlayerAvatarContainer, bool _showNpcAvatarContainer, bool useOtherNickname = false, bool useOtherAvatar = false) { }
+            bool _showPlayerNickname, bool _showNpcNickname, bool _showPlayerAvatarContainer, bool _showNpcAvatarContainer, bool useOtherNickname = false, bool useOtherAvatar = false)
+        { }
 
         /// <summary>
         /// Enables the button group needed by the dialog element, and sets all button labels.
