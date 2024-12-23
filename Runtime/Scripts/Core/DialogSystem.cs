@@ -22,7 +22,7 @@ namespace Reflectis.PLG.Dialogs
         [Header("References")]
         [SerializeField, Tooltip("The scene component or project asset that contains a valid graph")]
         protected Object graphContainer = default;
-        [SerializeField, Tooltip("Leave empty if panel will be screen space or in default pos")]
+        [SerializeField, Tooltip("VR use only. If null, panel will be in default pos")]
         protected Transform dialogPanelPos;
 
         [Header("Events")]

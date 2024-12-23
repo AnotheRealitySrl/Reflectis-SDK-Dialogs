@@ -115,6 +115,13 @@ namespace Reflectis.PLG.Dialogs
             // to fill the panel fields.
             if (currentDialog != null)
             {
+                //Check if there are another dialogSystem active
+                if (dialogSystemInUse != null && dialogSystemInUse != dialogSystem)
+                {
+                    CancelDialog();
+                    dialogStarted = false;
+                }
+
                 if (currentDialogPanel != null)
                     currentDialogPanel.panelObject.SetActive(false);
 
