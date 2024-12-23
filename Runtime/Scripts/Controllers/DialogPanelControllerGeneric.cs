@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -62,7 +63,7 @@ namespace Reflectis.PLG.Dialogs
         public DialogPanel PlayerPanel { get => playerPanel; }
         public DialogPanel NpcPanel { get => npcPanel; }
 
-        public UnityEvent OnNewDialogStart;
+        public Action<Transform> OnNewDialogStart;
 
         /// <summary>
         /// Makes the dialog system in use step on to the next dialog along the dialogue path.
@@ -120,7 +121,7 @@ namespace Reflectis.PLG.Dialogs
                 if (!dialogStarted)
                 {
                     dialogStarted = true;
-                    OnNewDialogStart?.Invoke();
+                    OnNewDialogStart?.Invoke(dialogSystem.DialogPanelPos);
                 }
 
                 currentDialogPanel = currentDialog.npcDialogPanel ? npcPanel : playerPanel;

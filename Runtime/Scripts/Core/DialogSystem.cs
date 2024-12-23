@@ -22,6 +22,8 @@ namespace Reflectis.PLG.Dialogs
         [Header("References")]
         [SerializeField, Tooltip("The scene component or project asset that contains a valid graph")]
         protected Object graphContainer = default;
+        [SerializeField, Tooltip("Leave empty if panel will be screen space or in default pos")]
+        protected Transform dialogPanelPos;
 
         [Header("Events")]
         [SerializeField, Tooltip("Invoked when the dialog system is ready to go")]
@@ -37,7 +39,7 @@ namespace Reflectis.PLG.Dialogs
         [SerializeField, Tooltip("Invoked when the user cancels a dialog")]
         public UnityEvent dialogCanceled = default;
 
-
+        public Transform DialogPanelPos { get => dialogPanelPos; }
         #endregion
 
         protected IGraph graph = null;

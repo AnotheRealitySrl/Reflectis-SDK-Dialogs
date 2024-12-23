@@ -43,7 +43,7 @@ namespace Reflectis.PLG.Dialogs
             textboxFullEventDelay = new WaitForSeconds(sendDoneDelay);
         }
 
-        public void PrepareForNewText(TMP_Text textBox) //Se lo chiamo da altro script, non serve il primo check! 
+        public void PrepareForNewText(TMP_Text textBox)
         {
             if (!readyForNewText)
                 return;
