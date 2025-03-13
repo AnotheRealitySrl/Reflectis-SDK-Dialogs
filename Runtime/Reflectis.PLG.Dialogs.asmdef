@@ -3,7 +3,7 @@
     "rootNamespace": "Reflectis.PLG.Dialogs",
     "references": [
         "I2.Loc",
-        "Reflectis.PLG.Graphs",
+        "Reflectis.SDK.Graphs",
         "Unity.TextMeshPro",
         "Unity.Addressables",
         "Unity.ResourceManager"

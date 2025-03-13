@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-using Reflectis.PLG.Graphs;
+using Reflectis.SDK.Graphs;
 using static Reflectis.PLG.Dialogs.DialogNode;
 
 namespace Reflectis.PLG.Dialogs
