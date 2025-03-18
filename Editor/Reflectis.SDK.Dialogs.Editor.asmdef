@@ -1,0 +1,19 @@
+{
+  "name": "Reflectis.SDK.Dialogs.Editor",
+  "rootNamespace": "Reflectis.SDK.DialogsEditor",
+  "references": [
+    "Reflectis.SDK.Dialogs",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -3,7 +3,7 @@ using Reflectis.SDK.Graphs;
 using static UnityEngine.GraphicsBuffer;
 using UnityEditor;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
     [AddComponentMenu("Dialogs/Interaction/Talkable")]
     public class Talkable : MonoBehaviour

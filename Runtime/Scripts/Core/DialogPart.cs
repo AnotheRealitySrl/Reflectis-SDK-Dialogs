@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 using Reflectis.SDK.Graphs;
-using static Reflectis.PLG.Dialogs.DialogNode;
+using static Reflectis.SDK.Dialogs.DialogNode;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
 
     ///////////////////////////////////////////////////////////////////////////

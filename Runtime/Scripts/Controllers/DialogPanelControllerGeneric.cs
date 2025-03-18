@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
     public class DialogPanelControllerGeneric : MonoBehaviour
     {

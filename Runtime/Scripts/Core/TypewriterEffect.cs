@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
     public class TypewriterEffect : MonoBehaviour
     {

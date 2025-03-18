@@ -1,6 +1,6 @@
 {
-  "name": "com.anotherealitysrl.reflectis-plg-dialogs",
-  "displayName": "Reflectis-PLG-Dialogs",
+  "name": "com.anotherealitysrl.reflectis-sdk-dialogs",
+  "displayName": "Reflectis-SDK-Dialogs",
   "version": "1.0.0",
   "unity": "2020.1",
   "description": "Reflectis Dialogs module",
@@ -10,7 +10,7 @@
   "category": "Unity",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnotheRealitySrl/Reflectis-PLG-Dialogs"
+    "url": "https://github.com/AnotheRealitySrl/Reflectis-SDK-Dialogs"
   },
   "samples": [
     {

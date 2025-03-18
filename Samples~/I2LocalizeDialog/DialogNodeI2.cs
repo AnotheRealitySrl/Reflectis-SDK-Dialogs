@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
     public class DialogNodeI2 : DialogNode
     {

@@ -1,11 +1,11 @@
-using Reflectis.PLG.Dialogs;
+using Reflectis.SDK.Dialogs;
 using System;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Reflectis.PLG.DialogsEditor
+namespace Reflectis.SDK.DialogsEditor
 {
     [CustomEditor(typeof(DialogPanelController))]
     public class DialogPanelControllerEditor : Editor

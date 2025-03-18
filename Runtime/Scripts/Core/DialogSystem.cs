@@ -7,9 +7,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-using static Reflectis.PLG.Dialogs.DialogNode;
+using static Reflectis.SDK.Dialogs.DialogNode;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
     ///////////////////////////////////////////////////////////////////////////
     /// <summary>

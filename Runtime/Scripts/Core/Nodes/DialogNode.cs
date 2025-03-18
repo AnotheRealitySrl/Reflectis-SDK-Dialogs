@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-namespace Reflectis.PLG.Dialogs
+namespace Reflectis.SDK.Dialogs
 {
     ///////////////////////////////////////////////////////////////////////////
     /// <summary>
