@@ -17,11 +17,6 @@
       "displayName": "I2 LocalizeDialog",
       "description": "Contains the script used to be able to localize the language for the dialogs with I2 localize",
       "path": "Samples~/I2LocalizeDialog"
-    },
-{
-      "displayName": "Dialog Reflectis",
-      "description": "Contains the script to spawn the dialog panel in reflectis runtime",
-      "path": "Samples~/Reflectis"
     }
   ]
 }
