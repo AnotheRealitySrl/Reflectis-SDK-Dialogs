@@ -27,7 +27,7 @@ namespace Reflectis.SDK.Dialogs
 
         [Header("Events")]
         [SerializeField, Tooltip("Invoked when the dialog system is ready to go")]
-        protected UnityEvent dialogSystemReady = default;
+        public UnityEvent dialogSystemReady = default;
 
         [SerializeField, Tooltip("Invoked when any dialog of the dialog system changes its status")]
         public UnityEvent<DialogNode> dialogChanged = default;
