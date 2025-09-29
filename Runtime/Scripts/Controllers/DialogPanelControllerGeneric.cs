@@ -44,6 +44,10 @@ namespace Reflectis.SDK.Dialogs
             public bool showNickname = false;
             [Tooltip("Nickname bg object")]
             public GameObject nicknameBg = default;
+            [Tooltip("X coord for the Character name if Left-sided")]
+            public float nicknameBgPosXLeft = default;
+            [Tooltip("X coord for the Character name if Right-sided")]
+            public float nicknameBgPosXRight = default;
             [Tooltip("Text component that will display the character name")]
             public TMP_Text nicknameText = default;
             [Tooltip("Text component that will display the dialog text")]
@@ -136,8 +140,8 @@ namespace Reflectis.SDK.Dialogs
                 dialogSystemInUse = dialogSystem;
                 currentDialogPanel.panelObject.SetActive(true);
                 SetChoiceButtons(currentDialog, currentDialogPanel);
-                SetNicknameText(currentDialog.Character, currentDialogPanel);
-                SetAvatar(currentDialog.Avatar, currentDialogPanel);
+                SetNicknameText(currentDialog.Character, currentDialog.CharacterNameSide, currentDialogPanel);
+                SetAvatar(currentDialog.Avatar, currentDialog.CharacterAvatarSide, currentDialogPanel);
                 SetDialogText(currentDialog.Dialog, currentDialogPanel);
             }
             // if the there is no dialog in progress, disables the dialog panel.
@@ -244,12 +248,17 @@ namespace Reflectis.SDK.Dialogs
             }
         }
 
-        protected virtual void SetNicknameText(string titleId, DialogPanel currentPanel)
+        protected virtual void SetNicknameText(string titleId, DialogNode.LayoutElementSide characterNameSide, DialogPanel currentPanel)
         {
             if (!currentPanel.showNickname || string.IsNullOrEmpty(titleId))
                 currentPanel.nicknameBg.SetActive(false);
             else
             {
+                RectTransform nicknameBGRT = currentPanel.nicknameBg.GetComponent<RectTransform>();
+                nicknameBGRT.anchoredPosition = new Vector2(
+                    characterNameSide == DialogNode.LayoutElementSide.Left ? currentPanel.nicknameBgPosXLeft : currentPanel.nicknameBgPosXRight,
+                    nicknameBGRT.anchoredPosition.y
+                );
                 currentPanel.nicknameBg.SetActive(true);
                 currentPanel.nicknameText.text = titleId;
             }
@@ -265,6 +274,6 @@ namespace Reflectis.SDK.Dialogs
                 typewriterEffect.PrepareForNewText(currentPanel.dialogText);
         }
 
-        protected virtual void SetAvatar(Sprite texture, DialogPanel currentPanel) { }
+        protected virtual void SetAvatar(Sprite texture, DialogNode.LayoutElementSide characterAvatarSide, DialogPanel currentPanel) { }
     }
 }

@@ -67,16 +67,28 @@ namespace Reflectis.SDK.DialogsEditor
             SerializedProperty showNicknameText = serializedObject.FindProperty($"{variableName}.showNickname");
             EditorGUILayout.PropertyField(showNicknameText);
             if (showNicknameText.boolValue)
+            { 
                 dialogPanel.nicknameText = (TMP_Text)EditorGUILayout.ObjectField("Nickname Text", dialogPanel.nicknameText, typeof(TMP_Text), true);
+                dialogPanel.nicknameBgPosXLeft = (float)EditorGUILayout.FloatField("Nickname Pos X Left", dialogPanel.nicknameBgPosXLeft);
+                dialogPanel.nicknameBgPosXRight = (float)EditorGUILayout.FloatField("Nickname Pos X Right", dialogPanel.nicknameBgPosXRight);
+            }
 
             dialogPanel.dialogText = (TMP_Text)EditorGUILayout.ObjectField("Dialog Text", dialogPanel.dialogText, typeof(TMP_Text), true);
 
             SerializedProperty showAvatarContainer = serializedObject.FindProperty($"{variableName}.showAvatarContainer");
             EditorGUILayout.PropertyField(showAvatarContainer);
             if (showAvatarContainer.boolValue && variableName == "playerPanel")
+            {
                 controller.AvatarContainerPlayer = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerPlayer, typeof(Image), true);
+                controller.AvatarContainerPlayerPosXLeft = (float)EditorGUILayout.FloatField("Avatar Container Pos X Left", controller.AvatarContainerPlayerPosXLeft);
+                controller.AvatarContainerPlayerPosXRight = (float)EditorGUILayout.FloatField("Avatar Container Pos X Right", controller.AvatarContainerPlayerPosXRight);
+            }
             else
+            {
                 controller.AvatarContainerNpc = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerNpc, typeof(Image), true);
+                controller.AvatarContainerNpcPosXLeft = (float)EditorGUILayout.FloatField("Avatar Container Pos X Left", controller.AvatarContainerNpcPosXLeft);
+                controller.AvatarContainerNpcPosXRight = (float)EditorGUILayout.FloatField("Avatar Container Pos X Right", controller.AvatarContainerNpcPosXRight);
+            }
 
             SerializedProperty choiceButtonGroups = serializedObject.FindProperty($"{variableName}.choiceButtonGroups");
             EditorGUILayout.PropertyField(choiceButtonGroups, true);

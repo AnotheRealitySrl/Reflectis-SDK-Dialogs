@@ -8898,6 +8898,8 @@ MonoBehaviour:
     panelObject: {fileID: 8051229763351005914}
     showNickname: 1
     nicknameBg: {fileID: 1138959712967444117}
+    nicknameBgPosXLeft: -185
+    nicknameBgPosXRight: 185
     nicknameText: {fileID: 8051229763551453748}
     dialogText: {fileID: 8051229765276248915}
     showAvatarContainer: 1
@@ -8911,6 +8913,8 @@ MonoBehaviour:
     panelObject: {fileID: 1806892842338157545}
     showNickname: 1
     nicknameBg: {fileID: 3986303821784364267}
+    nicknameBgPosXLeft: -70
+    nicknameBgPosXRight: 70
     nicknameText: {fileID: 7724088478457259398}
     dialogText: {fileID: 46077842672195898}
     showAvatarContainer: 1
@@ -8926,7 +8930,11 @@ MonoBehaviour:
   quickSkip: 1
   skipSpeedup: 5
   avatarContainerPlayer: {fileID: 8051229765117738248}
+  avatarContainerPlayerPosXLeft: -415
+  avatarContainerPlayerPosXRight: 415
   avatarContainerNpc: {fileID: 4138225314468258261}
+  avatarContainerNpcPosXLeft: -415
+  avatarContainerNpcPosXRight: 415
 --- !u!114 &6944144496426556438
 MonoBehaviour:
   m_ObjectHideFlags: 0
