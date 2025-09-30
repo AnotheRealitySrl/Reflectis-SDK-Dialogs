@@ -44,10 +44,6 @@ namespace Reflectis.SDK.Dialogs
             public bool showNickname = false;
             [Tooltip("Nickname bg object")]
             public GameObject nicknameBg = default;
-            [Tooltip("X coord for the Character name if Left-sided")]
-            public float nicknameBgPosXLeft = default;
-            [Tooltip("X coord for the Character name if Right-sided")]
-            public float nicknameBgPosXRight = default;
             [Tooltip("Text component that will display the character name")]
             public TMP_Text nicknameText = default;
             [Tooltip("Text component that will display the dialog text")]
@@ -254,11 +250,6 @@ namespace Reflectis.SDK.Dialogs
                 currentPanel.nicknameBg.SetActive(false);
             else
             {
-                RectTransform nicknameBGRT = currentPanel.nicknameBg.GetComponent<RectTransform>();
-                nicknameBGRT.anchoredPosition = new Vector2(
-                    characterNameSide == DialogNode.LayoutElementSide.Left ? currentPanel.nicknameBgPosXLeft : currentPanel.nicknameBgPosXRight,
-                    nicknameBGRT.anchoredPosition.y
-                );
                 currentPanel.nicknameBg.SetActive(true);
                 currentPanel.nicknameText.text = titleId;
             }

@@ -1,5 +1,4 @@
 using Reflectis.SDK.Dialogs;
-using System;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -67,27 +66,42 @@ namespace Reflectis.SDK.DialogsEditor
             SerializedProperty showNicknameText = serializedObject.FindProperty($"{variableName}.showNickname");
             EditorGUILayout.PropertyField(showNicknameText);
             if (showNicknameText.boolValue)
-            { 
+            {
                 dialogPanel.nicknameText = (TMP_Text)EditorGUILayout.ObjectField("Nickname Text", dialogPanel.nicknameText, typeof(TMP_Text), true);
-                dialogPanel.nicknameBgPosXLeft = (float)EditorGUILayout.FloatField("Nickname Pos X Left", dialogPanel.nicknameBgPosXLeft);
-                dialogPanel.nicknameBgPosXRight = (float)EditorGUILayout.FloatField("Nickname Pos X Right", dialogPanel.nicknameBgPosXRight);
+                if (variableName == "playerPanel")
+                {
+                    controller.NicknameBgPosXLeftPlayer = (float)EditorGUILayout.FloatField("Nickname Pos X Left", controller.NicknameBgPosXLeftPlayer);
+                    controller.NicknameBgPosXRightPlayer = (float)EditorGUILayout.FloatField("Nickname Pos X Right", controller.NicknameBgPosXRightPlayer);
+                }
+                else
+                {
+                    controller.NicknameBgPosXLeftNpc = (float)EditorGUILayout.FloatField("Nickname Pos X Left", controller.NicknameBgPosXLeftNpc);
+                    controller.NicknameBgPosXRightNpc = (float)EditorGUILayout.FloatField("Nickname Pos X Right", controller.NicknameBgPosXRightNpc);
+                }
             }
 
             dialogPanel.dialogText = (TMP_Text)EditorGUILayout.ObjectField("Dialog Text", dialogPanel.dialogText, typeof(TMP_Text), true);
 
             SerializedProperty showAvatarContainer = serializedObject.FindProperty($"{variableName}.showAvatarContainer");
             EditorGUILayout.PropertyField(showAvatarContainer);
-            if (showAvatarContainer.boolValue && variableName == "playerPanel")
+            if (showAvatarContainer.boolValue)
             {
-                controller.AvatarContainerPlayer = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerPlayer, typeof(Image), true);
-                controller.AvatarContainerPlayerPosXLeft = (float)EditorGUILayout.FloatField("Avatar Container Pos X Left", controller.AvatarContainerPlayerPosXLeft);
-                controller.AvatarContainerPlayerPosXRight = (float)EditorGUILayout.FloatField("Avatar Container Pos X Right", controller.AvatarContainerPlayerPosXRight);
-            }
-            else
-            {
-                controller.AvatarContainerNpc = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerNpc, typeof(Image), true);
-                controller.AvatarContainerNpcPosXLeft = (float)EditorGUILayout.FloatField("Avatar Container Pos X Left", controller.AvatarContainerNpcPosXLeft);
-                controller.AvatarContainerNpcPosXRight = (float)EditorGUILayout.FloatField("Avatar Container Pos X Right", controller.AvatarContainerNpcPosXRight);
+                if (variableName == "playerPanel")
+                {
+                    controller.AvatarContainerPlayer = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerPlayer, typeof(Image), true);
+                    controller.AvatarContainerPosXLeftPlayer = (float)EditorGUILayout.FloatField("Avatar Container Pos X Left", controller.AvatarContainerPosXLeftPlayer);
+                    controller.AvatarContainerPosXRightPlayer = (float)EditorGUILayout.FloatField("Avatar Container Pos X Right", controller.AvatarContainerPosXRightPlayer);
+                    controller.DialogBoxPosXLeftPlayer = (float)EditorGUILayout.FloatField("Dialog Box Pos X Left", controller.DialogBoxPosXLeftPlayer);
+                    controller.DialogBoxPosXRightPlayer = (float)EditorGUILayout.FloatField("Dialog Box Pos X Right", controller.DialogBoxPosXRightPlayer);
+                }
+                else
+                {
+                    controller.AvatarContainerNpc = (Image)EditorGUILayout.ObjectField("Avatar Container", controller.AvatarContainerNpc, typeof(Image), true);
+                    controller.AvatarContainerPosXLeftNpc = (float)EditorGUILayout.FloatField("Avatar Container Pos X Left", controller.AvatarContainerPosXLeftNpc);
+                    controller.AvatarContainerPosXRightNpc = (float)EditorGUILayout.FloatField("Avatar Container Pos X Right", controller.AvatarContainerPosXRightNpc);
+                    controller.DialogBoxPosXLeftNpc = (float)EditorGUILayout.FloatField("Dialog Box Pos X Left", controller.DialogBoxPosXLeftNpc);
+                    controller.DialogBoxPosXRightNpc = (float)EditorGUILayout.FloatField("Dialog Box Pos X Right", controller.DialogBoxPosXRightNpc);
+                }
             }
 
             SerializedProperty choiceButtonGroups = serializedObject.FindProperty($"{variableName}.choiceButtonGroups");
