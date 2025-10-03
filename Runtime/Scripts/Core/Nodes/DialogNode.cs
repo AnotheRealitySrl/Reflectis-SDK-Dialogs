@@ -5,8 +5,9 @@ using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
+#if UNITY_EDITOR
 using UnityEngine.UIElements;
+#endif
 
 namespace Reflectis.SDK.Dialogs
 {
@@ -27,6 +28,14 @@ namespace Reflectis.SDK.Dialogs
         }
 
         ///////////////////////////////////////////////////////////////////////////
+        /// <summary>The possible layout slement sides</summary>
+        public enum LayoutElementSide
+        {
+            Left,
+            Right
+        }
+
+        ///////////////////////////////////////////////////////////////////////////
         [Header("Ports")]
         [SerializeField, HideInInspector, PortLabel("")]
         protected MultiInputPort<DialogNode> input = default;
@@ -44,16 +53,28 @@ namespace Reflectis.SDK.Dialogs
         protected OutputPort<DialogNode> option4 = default;
 
 
-        [Header("Data")]
-        [SerializeField, TextArea, NodeData, Tooltip("Dialog text (or reference for the database)")]
-        protected string dialog;
+        [Header("Layout")]
+        [Tooltip("Choose beetween player and NPC UI elements")]
+        public bool npcDialogPanel;
 
+        [SerializeField, Tooltip("Choose the side for the Character name")]
+        protected LayoutElementSide characterNameSide = LayoutElementSide.Left;
+
+        [SerializeField, Tooltip("Choose the side for the Character avatar")]
+        protected LayoutElementSide characterAvatarSide = LayoutElementSide.Left;
+
+        [Header("Character Data")]
         [SerializeField, NodeData, Tooltip("Character name (or reference for the database)")]
         protected string character;
 
         [SerializeField, NodeData, Tooltip("Reference to the picture to use as icon/avatar")]
         protected Sprite avatar;
 
+        [Header("Dialog Text")]
+        [SerializeField, TextArea, NodeData, Tooltip("Dialog text (or reference for the database)")]
+        protected string dialog;
+
+        [Header("Options")]
         [SerializeField, NodeData, Tooltip("Text label to show on dialog choice button")]
         protected string option1Label;
 
@@ -69,10 +90,6 @@ namespace Reflectis.SDK.Dialogs
         [SerializeField, NodeData, Tooltip("The current dialog status")]
         protected DialogStatus status = DialogStatus.Todo;
 
-
-        [Header("Settings")]
-        [Tooltip("choose beetween player and NPC UI elements")]
-        public bool npcDialogPanel;
 
         [Header("Events")]
         [SerializeField, Tooltip("Event called when the dialog status changes")]
@@ -178,6 +195,22 @@ namespace Reflectis.SDK.Dialogs
         }
 
         ///////////////////////////////////////////////////////////////////////////
+        /// <summary>The side for the Character name.</summary>
+        public LayoutElementSide CharacterNameSide
+        {
+            get => characterNameSide;
+            set => characterNameSide = value;
+        }
+
+        ///////////////////////////////////////////////////////////////////////////
+        /// <summary>The side for the Character avatar.</summary>
+        public LayoutElementSide CharacterAvatarSide
+        {
+            get => characterAvatarSide;
+            set => characterAvatarSide = value;
+        }
+
+        ///////////////////////////////////////////////////////////////////////////
         /// <summary>Returns the text label for the first option button.</summary>
         public virtual string Option1Label
         {
@@ -235,7 +268,8 @@ namespace Reflectis.SDK.Dialogs
         public DialogNode GetNextAt(int choice)
         {
             DialogNode result;
-            switch (choice) {
+            switch (choice)
+            {
                 case 1:
                     result = option1.LinkedNodes.FirstOrDefault();
                     break;

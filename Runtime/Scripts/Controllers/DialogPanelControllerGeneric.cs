@@ -136,8 +136,8 @@ namespace Reflectis.SDK.Dialogs
                 dialogSystemInUse = dialogSystem;
                 currentDialogPanel.panelObject.SetActive(true);
                 SetChoiceButtons(currentDialog, currentDialogPanel);
-                SetNicknameText(currentDialog.Character, currentDialogPanel);
-                SetAvatar(currentDialog.Avatar, currentDialogPanel);
+                SetNicknameText(currentDialog.Character, currentDialog.CharacterNameSide, currentDialogPanel);
+                SetAvatar(currentDialog.Avatar, currentDialog.CharacterAvatarSide, currentDialogPanel);
                 SetDialogText(currentDialog.Dialog, currentDialogPanel);
             }
             // if the there is no dialog in progress, disables the dialog panel.
@@ -244,7 +244,7 @@ namespace Reflectis.SDK.Dialogs
             }
         }
 
-        protected virtual void SetNicknameText(string titleId, DialogPanel currentPanel)
+        protected virtual void SetNicknameText(string titleId, DialogNode.LayoutElementSide characterNameSide, DialogPanel currentPanel)
         {
             if (!currentPanel.showNickname || string.IsNullOrEmpty(titleId))
                 currentPanel.nicknameBg.SetActive(false);
@@ -265,6 +265,6 @@ namespace Reflectis.SDK.Dialogs
                 typewriterEffect.PrepareForNewText(currentPanel.dialogText);
         }
 
-        protected virtual void SetAvatar(Sprite texture, DialogPanel currentPanel) { }
+        protected virtual void SetAvatar(Sprite texture, DialogNode.LayoutElementSide characterAvatarSide, DialogPanel currentPanel) { }
     }
 }
