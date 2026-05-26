@@ -15,6 +15,8 @@ namespace Reflectis.SDK.Dialogs
         [SerializeField]
         protected DialogPanel npcPanel;
 
+        [SerializeField]
+        protected bool initializeOnStart = false;
         //Typewrite effect settings
         [SerializeField]
         protected float charactersPerSecond = 20f;
@@ -151,6 +153,14 @@ namespace Reflectis.SDK.Dialogs
         }
 
         private void Start()
+        {
+            if (initializeOnStart)
+            {
+                Init();
+            }
+        }
+
+        public void Init()
         {
             playerPanel.isPlayer = true;
             npcPanel.isPlayer = false;
