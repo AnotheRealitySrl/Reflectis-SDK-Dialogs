@@ -1,5 +1,10 @@
 # Release notes
 
+## v2.1.0
+
+### Changed
+- Moved initialization logic out of `Start` into a new public `Init` method, allowing explicit initialization of the dialog system.
+
 ## v2.0.0
 
 ### Added
