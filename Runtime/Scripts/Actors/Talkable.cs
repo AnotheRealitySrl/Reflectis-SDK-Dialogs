@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using Reflectis.SDK.Graphs;
+using Virtuademy.SDK.Graphs;
 using static UnityEngine.GraphicsBuffer;
 using UnityEditor;
 
-namespace Reflectis.SDK.Dialogs
+namespace Virtuademy.SDK.Dialogs
 {
     [AddComponentMenu("Dialogs/Interaction/Talkable")]
     public class Talkable : MonoBehaviour

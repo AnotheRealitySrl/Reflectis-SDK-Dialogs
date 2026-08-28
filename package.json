@@ -1,6 +1,6 @@
 {
-  "name": "com.anotherealitysrl.reflectis-sdk-dialogs",
-  "displayName": "Reflectis-SDK-Dialogs",
+  "name": "com.anotherealitysrl.virtuademy-sdk-dialogs",
+  "displayName": "Virtuademy-SDK-Dialogs",
   "version": "2.1.0",
   "unity": "2020.1",
   "description": "Reflectis Dialogs module",
@@ -10,7 +10,7 @@
   "category": "Unity",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnotheRealitySrl/Reflectis-SDK-Dialogs"
+    "url": "https://github.com/AnotheRealitySrl/Virtuademy-SDK-Dialogs"
   },
   "samples": [
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Reflectis.SDK.Dialogs
+namespace Virtuademy.SDK.Dialogs
 {
     public class DialogNodeI2 : DialogNode
     {

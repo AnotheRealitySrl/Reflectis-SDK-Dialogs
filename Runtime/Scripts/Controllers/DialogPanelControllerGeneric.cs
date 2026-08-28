@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Reflectis.SDK.Dialogs
+namespace Virtuademy.SDK.Dialogs
 {
     public class DialogPanelControllerGeneric : MonoBehaviour
     {

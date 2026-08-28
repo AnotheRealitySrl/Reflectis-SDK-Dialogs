@@ -1,10 +1,10 @@
-using Reflectis.SDK.Dialogs;
+using Virtuademy.SDK.Dialogs;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Reflectis.SDK.DialogsEditor
+namespace Virtuademy.SDK.DialogsEditor
 {
     [CustomEditor(typeof(DialogPanelController))]
     public class DialogPanelControllerEditor : Editor

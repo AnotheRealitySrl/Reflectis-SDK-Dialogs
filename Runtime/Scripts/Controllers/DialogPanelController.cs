@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-namespace Reflectis.SDK.Dialogs
+namespace Virtuademy.SDK.Dialogs
 {
     /// <summary>
     /// This script is supposed to be attached to a UI Panel made with Unity components,

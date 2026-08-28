@@ -1,4 +1,4 @@
-﻿using Reflectis.SDK.Graphs;
+﻿using Virtuademy.SDK.Graphs;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-using static Reflectis.SDK.Dialogs.DialogNode;
+using static Virtuademy.SDK.Dialogs.DialogNode;
 
-namespace Reflectis.SDK.Dialogs
+namespace Virtuademy.SDK.Dialogs
 {
     ///////////////////////////////////////////////////////////////////////////
     /// <summary>

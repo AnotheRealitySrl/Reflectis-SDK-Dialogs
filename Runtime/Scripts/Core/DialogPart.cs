@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-using Reflectis.SDK.Graphs;
-using static Reflectis.SDK.Dialogs.DialogNode;
+using Virtuademy.SDK.Graphs;
+using static Virtuademy.SDK.Dialogs.DialogNode;
 
-namespace Reflectis.SDK.Dialogs
+namespace Virtuademy.SDK.Dialogs
 {
 
     ///////////////////////////////////////////////////////////////////////////

@@ -1,14 +1,13 @@
 {
-  "name": "Reflectis.SDK.Dialogs",
-  "rootNamespace": "Reflectis.SDK.Dialogs",
+  "name": "Virtuademy.SDK.Dialogs.Editor",
+  "rootNamespace": "Virtuademy.SDK.DialogsEditor",
   "references": [
-    "I2.Loc",
-    "Reflectis.SDK.Graphs",
-    "Unity.TextMeshPro",
-    "Unity.Addressables",
-    "Unity.ResourceManager"
+    "Virtuademy.SDK.Dialogs",
+    "Unity.TextMeshPro"
   ],
-  "includePlatforms": [],
+  "includePlatforms": [
+    "Editor"
+  ],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
   "overrideReferences": false,
