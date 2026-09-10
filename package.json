@@ -18,5 +18,8 @@
       "description": "Contains the script used to be able to localize the language for the dialogs with I2 localize",
       "path": "Samples~/I2LocalizeDialog"
     }
-  ]
+  ],
+  "dependencies": {
+    "com.anotherealitysrl.virtuademy-sdk-graphs": "2.0.0"
+  }
 }
