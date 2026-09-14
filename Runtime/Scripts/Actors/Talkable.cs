@@ -3,6 +3,7 @@ using SPACS.Graphs;
 using static UnityEngine.GraphicsBuffer;
 using UnityEditor;
 
+
 namespace SPACS.Dialogs
 {
     [AddComponentMenu("Dialogs/Interaction/Talkable")]
