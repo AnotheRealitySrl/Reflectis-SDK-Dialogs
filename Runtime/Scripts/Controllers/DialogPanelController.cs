@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-namespace Virtuademy.SDK.Dialogs
+namespace SPACS.Dialogs
 {
     /// <summary>
     /// This script is supposed to be attached to a UI Panel made with Unity components,

@@ -1,9 +1,9 @@
-{
-  "name": "Virtuademy.SDK.Dialogs",
-  "rootNamespace": "Virtuademy.SDK.Dialogs",
+﻿{
+  "name": "SPACS.Dialogs",
+  "rootNamespace": "SPACS.Dialogs",
   "references": [
     "I2.Loc",
-    "Virtuademy.SDK.Graphs",
+    "SPACS.Graphs",
     "Unity.TextMeshPro",
     "Unity.Addressables",
     "Unity.ResourceManager"

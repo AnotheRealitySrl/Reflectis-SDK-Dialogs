@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
 
-namespace Virtuademy.SDK.Dialogs
+namespace SPACS.Dialogs
 {
     public class TypewriterEffect : MonoBehaviour
     {

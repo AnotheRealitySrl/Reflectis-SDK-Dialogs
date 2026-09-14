@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using Virtuademy.SDK.Graphs;
+using SPACS.Graphs;
 using static UnityEngine.GraphicsBuffer;
 using UnityEditor;
 
-namespace Virtuademy.SDK.Dialogs
+namespace SPACS.Dialogs
 {
     [AddComponentMenu("Dialogs/Interaction/Talkable")]
     public class Talkable : MonoBehaviour

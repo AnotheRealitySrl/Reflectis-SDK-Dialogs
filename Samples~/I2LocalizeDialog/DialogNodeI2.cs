@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Virtuademy.SDK.Dialogs
+namespace SPACS.Dialogs
 {
     public class DialogNodeI2 : DialogNode
     {

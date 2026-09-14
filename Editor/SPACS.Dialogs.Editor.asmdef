@@ -1,8 +1,8 @@
-{
-  "name": "Virtuademy.SDK.Dialogs.Editor",
-  "rootNamespace": "Virtuademy.SDK.DialogsEditor",
+﻿{
+  "name": "SPACS.Dialogs.Editor",
+  "rootNamespace": "SPACS.DialogsEditor",
   "references": [
-    "Virtuademy.SDK.Dialogs",
+    "SPACS.Dialogs",
     "Unity.TextMeshPro"
   ],
   "includePlatforms": [

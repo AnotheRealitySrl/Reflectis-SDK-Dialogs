@@ -1,4 +1,4 @@
-﻿using Virtuademy.SDK.Graphs;
+﻿using SPACS.Graphs;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using UnityEngine.Events;
 using UnityEngine.UIElements;
 #endif
 
-namespace Virtuademy.SDK.Dialogs
+namespace SPACS.Dialogs
 {
     ///////////////////////////////////////////////////////////////////////////
     /// <summary>

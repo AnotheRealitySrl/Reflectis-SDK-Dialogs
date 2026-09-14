@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-using Virtuademy.SDK.Graphs;
-using static Virtuademy.SDK.Dialogs.DialogNode;
+using SPACS.Graphs;
+using static SPACS.Dialogs.DialogNode;
 
-namespace Virtuademy.SDK.Dialogs
+namespace SPACS.Dialogs
 {
 
     ///////////////////////////////////////////////////////////////////////////

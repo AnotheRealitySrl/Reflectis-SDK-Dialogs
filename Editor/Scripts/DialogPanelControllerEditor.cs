@@ -1,10 +1,10 @@
-using Virtuademy.SDK.Dialogs;
+﻿using SPACS.Dialogs;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Virtuademy.SDK.DialogsEditor
+namespace SPACS.DialogsEditor
 {
     [CustomEditor(typeof(DialogPanelController))]
     public class DialogPanelControllerEditor : Editor
