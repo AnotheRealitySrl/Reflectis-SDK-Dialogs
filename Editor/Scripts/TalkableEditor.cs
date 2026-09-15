@@ -2,10 +2,10 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace SPACS.DialogsEditor
+namespace SPACS.Dialogs.Editor
 {
     [CustomEditor(typeof(Talkable))]
-    public class TalkableEditor : Editor
+    public class TalkableEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

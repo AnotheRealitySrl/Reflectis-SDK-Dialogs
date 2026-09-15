@@ -1,6 +1,6 @@
 ﻿{
   "name": "SPACS.Dialogs.Editor",
-  "rootNamespace": "SPACS.DialogsEditor",
+  "rootNamespace": "SPACS.Dialogs.Editor",
   "references": [
     "SPACS.Dialogs",
     "Unity.TextMeshPro"

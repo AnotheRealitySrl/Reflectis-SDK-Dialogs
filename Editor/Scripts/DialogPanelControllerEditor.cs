@@ -4,10 +4,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SPACS.DialogsEditor
+namespace SPACS.Dialogs.Editor
 {
     [CustomEditor(typeof(DialogPanelController))]
-    public class DialogPanelControllerEditor : Editor
+    public class DialogPanelControllerEditor : UnityEditor.Editor
     {
         DialogPanelController controller;
         public override void OnInspectorGUI()
