@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using SPACS.Graphs;
-using static UnityEngine.GraphicsBuffer;
-using UnityEditor;
 
 
 namespace SPACS.Dialogs
@@ -67,20 +65,4 @@ namespace SPACS.Dialogs
             }
         }
     }
-
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(Talkable))]
-    public class SaveDTOEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            Talkable saveDto = (Talkable)target;
-
-            if (GUILayout.Button("Activate Dialog"))
-                saveDto.ActivateDialog();
-        }
-    }
-#endif
 }
